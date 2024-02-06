@@ -1,16 +1,18 @@
-
-import React, { useState, useEffect } from 'react';
-import axiosWithAuth from '../axiosWithAuth';
+// Friends.js
+import React, { useState, useEffect } from "react";
+import axiosWithAuth from "../axiosWithAuth";
 
 const Friends = () => {
   const [friends, setFriends] = useState([]);
 
   const getFriends = async () => {
-    axiosWithAuth().get('http://localhost:9000/api/friends').then(res => {
+    axiosWithAuth()
+      .get("http://localhost:9000/api/friends")
+      .then((res) => {
         console.log(res.data);
         setFriends(res.data);
-    })
-  }
+      });
+  };
 
   useEffect(() => {
     getFriends();
